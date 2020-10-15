@@ -9,6 +9,7 @@ public class Main {
 	    iCustomer.createAccount(customer1);
 	    iCustomer.checkBalance(1);
 	    iCustomer.withdrawal(1,3);
+	    iCustomer.sendMoney(2,19);
         iAdmin.getListAccount();
 
     }

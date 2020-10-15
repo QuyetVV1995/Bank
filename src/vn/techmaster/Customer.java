@@ -52,6 +52,17 @@ public class Customer extends Account implements ICustomer {
         }
     }
 
+    @Override
+    public void sendMoney(int id, double value) {
+        for(int i = 0; i < DBAccount.dbcustomers.size(); i++){
+            if(DBAccount.dbcustomers.get(i).getId() == id){
+
+                DBAccount.dbcustomers.get(i).setBalance(DBAccount.dbcustomers.get(i).getBalance() + value);
+            }
+        }
+    }
+
+
     public Customer(int id, double balance, Role role, String name, String email) {
         super(id, balance, role);
         setName(name);
