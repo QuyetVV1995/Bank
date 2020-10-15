@@ -11,6 +11,5 @@ public class Main {
 	    iCustomer.withdrawal(1,3);
 	    iCustomer.sendMoney(2,19);
         iAdmin.getListAccount();
-
     }
 }

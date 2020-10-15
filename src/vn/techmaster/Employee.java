@@ -20,14 +20,13 @@ public class Employee implements IEmployee {
     }
 
     public boolean confirmInfoAccount(Customer customer){
-        boolean isConfirm = false;
         System.out.println("Xac nhan lai thong tin khach hang");
         System.out.println("ID: " + customer.getId());
         System.out.println("Balance: " +customer.getBalance());
         System.out.println("Name: " +customer.getName());
         System.out.println("Email: " + customer.getEmail());
-        isConfirm = admin.approvalNewAccount();
-        return isConfirm;
+
+        return admin.approvalNewAccount();
     }
 
 

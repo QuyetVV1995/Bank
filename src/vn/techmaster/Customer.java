@@ -1,7 +1,5 @@
 package vn.techmaster;
 
-import java.util.ArrayList;
-
 public class Customer extends Account implements ICustomer {
     private String name;
     private String email;
