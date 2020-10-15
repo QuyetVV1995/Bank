@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class Admin implements IAdmin {
     Scanner scanner = new Scanner(System.in);
     private int approval;
-    public boolean approvalNewAccount(){
+    public boolean approvalNewAccount(Customer customer){
         System.out.println(" Approval new Account: 1-Yes/ 2-No?");
         approval = scanner.nextInt();
         System.out.println(approval);
 
         if(approval==1){
+            DBAccount.dbcustomers.add(customer);
             return true;
         }else {
             return false;

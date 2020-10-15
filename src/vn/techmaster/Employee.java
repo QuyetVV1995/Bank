@@ -6,7 +6,6 @@ public class Employee implements IEmployee {
     public boolean validationAccountExist(Customer customer) {
         boolean exits = false;
         for (int i = 0; i < DBAccount.dbcustomers.size(); i++) {
-            // TODO: check exist with Database
             if(DBAccount.dbcustomers.get(i).getName().equals(customer.getName())) {
                 System.out.println("account da ton tai");
                 exits = true;
@@ -26,7 +25,7 @@ public class Employee implements IEmployee {
         System.out.println("Name: " +customer.getName());
         System.out.println("Email: " + customer.getEmail());
 
-        return admin.approvalNewAccount();
+        return admin.approvalNewAccount(customer);
     }
 
 

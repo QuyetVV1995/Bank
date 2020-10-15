@@ -13,7 +13,6 @@ public class Customer extends Account implements ICustomer {
     public void createAccount(Customer customer){
         if(!employee.validationAccountExist(customer)){
             if(employee.confirmInfoAccount(customer)){
-                DBAccount.dbcustomers.add(customer);
                 System.out.println("Account da duoc tao thanh cong");
             } else {
                 System.out.println("Admin not approval");

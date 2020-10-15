@@ -1,6 +1,6 @@
 package vn.techmaster;
 
 public interface IAdmin {
-     boolean approvalNewAccount();
+     boolean approvalNewAccount(Customer customer);
      void getListAccount();
 }
