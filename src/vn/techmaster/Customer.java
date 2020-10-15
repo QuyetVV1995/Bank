@@ -6,7 +6,7 @@ public class Customer extends Account implements ICustomer {
     private String name;
     private String email;
 
-    Employee employee = new Employee();
+    IEmployee employee = new Employee();
 
     public Customer() {
         super();

@@ -1,7 +1,7 @@
 package vn.techmaster;
 
 public class Employee implements IEmployee {
-    Admin admin = new Admin();
+    IAdmin admin = new Admin();
 
     public boolean validationAccountExist(Customer customer) {
         boolean exits = false;
