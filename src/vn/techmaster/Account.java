@@ -11,12 +11,16 @@ public  class Account {
 
     }
 
-    public int getAccountByID(int id) {
-      return 0;
+    public void searchAccountById(int id) {
+
     }
 
-    public void checkBalance(){
+    public double checkBalance(int id){
+        return 0;
+    }
 
+    public boolean checkAccountExist(String name){
+        return true;
     }
 
 

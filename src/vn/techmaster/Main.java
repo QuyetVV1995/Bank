@@ -6,6 +6,7 @@ public class Main {
         Customer customer = new Customer();
         Employee employee = new Employee();
         Admin admin = new Admin();
-        employee.createAccount();
+       // employee.createAccount();
+        customer.transfer(1,2, 5);
     }
 }

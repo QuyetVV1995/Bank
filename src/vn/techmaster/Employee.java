@@ -2,7 +2,7 @@ package vn.techmaster;
 
 import java.util.Scanner;
 
-public class Employee extends Account implements IEmployee {
+public class Employee extends Account  {
     private double salary;
     Admin admin = new Admin();
     @Override
@@ -16,25 +16,58 @@ public class Employee extends Account implements IEmployee {
         employee.setName(scanner.nextLine());
         employee.setEmail(scanner.nextLine());
         employee.setSalary(Double.parseDouble(scanner.nextLine()));
-        if(admin.approvalNewEmployee(employee)){
-            System.out.println("Add new Employee: Success");
-        }else
-        {
-            System.out.println("Add new Employee: Fail");
+
+        if(checkAccountExist(employee.getName())){
+            System.out.println("Employee exist");
+        }else{
+            if(admin.approvalNewEmployee(employee)){
+                System.out.println("Add new Employee: Success");
+            }else
+            {
+                System.out.println("Add new Employee: Fail");
+            }
         }
     }
 
     @Override
-    public int getAccountByID(int id) {
-        System.out.println("Employee getAccountByID");
-        return 0;
+    public boolean checkAccountExist(String name){
+        boolean tmp = false;
+        for (int i = 0; i < DBAccount.dbEmployee.size(); i++){
+            // TODO: check again
+            if(DBAccount.dbEmployee.get(i).getName() == name){
+                tmp = true;
+            }
+            else{
+                tmp = false;
+            }
+        }
+        return tmp;
     }
 
     @Override
-    public void checkBalance(){
-        System.out.println("Employee check Balance");
+    public void searchAccountById(int id) {
+        for (int i = 0; i < DBAccount.dbEmployee.size(); i++){
+            if(DBAccount.dbEmployee.get(i).getId() == id){
+                System.out.println("ID: " + DBAccount.dbEmployee.get(i).getId());
+                System.out.println("Name: " + DBAccount.dbEmployee.get(i).getName());
+                System.out.println("Email: " + DBAccount.dbEmployee.get(i).getEmail());
+                System.out.println("Role: " + DBAccount.dbEmployee.get(i).getRole());
+                System.out.println("Balance: " + DBAccount.dbEmployee.get(i).getBalance());
+                System.out.println("Salary: " + DBAccount.dbEmployee.get(i).getSalary());
+            }
+        }
     }
 
+    @Override
+    public double checkBalance(int id){
+        double tmp = 0;
+        for (int i = 0; i < DBAccount.dbEmployee.size(); i++){
+            if(DBAccount.dbEmployee.get(i).getId() == id){
+                tmp = DBAccount.dbEmployee.get(i).getBalance();
+            }
+        }
+        return tmp;
+    }
 
     public boolean requestNewCustomer(Customer customer){
         System.out.println("ID: " + customer.getId());
@@ -42,6 +75,7 @@ public class Employee extends Account implements IEmployee {
         System.out.println("Role: " + customer.getRole());
         System.out.println("Name: " + customer.getName());
         System.out.println("Email: " + customer.getEmail());
+
         if( admin.approvalNewCustomer(customer))
         {
             System.out.println("Request is approval");
@@ -52,6 +86,25 @@ public class Employee extends Account implements IEmployee {
         }
     }
 
+    public boolean requestWithdrawal(Customer customer){
+        if(admin.approvalWithdrawal()){
+            System.out.println("Request is approval");
+            return true;
+        } else{
+            System.out.println("Not Approval");
+            return false;
+        }
+    }
+
+    public boolean requestSendMoney(Customer customer) {
+        if(admin.approvalSendMoney()){
+            System.out.println("Request is approval");
+            return true;
+        } else{
+            System.out.println("Not Approval");
+            return false;
+        }
+    }
 
     public Employee(int id, double balance, Role role, String name, String email, double salary) {
         super(id, balance, role, name, email);
@@ -68,4 +121,6 @@ public class Employee extends Account implements IEmployee {
     public Employee() {
 
     }
+
+
 }

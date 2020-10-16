@@ -9,8 +9,8 @@ public class DBAccount {
 
     static {
         dbCustomer.add(new Customer(1,10,Role.CUSTOMER,"abc","abc@gmail.com"));
-        dbCustomer.add(new Customer(2,20,Role.CUSTOMER,"abc","abc@gmail.com"));
-        dbCustomer.add(new Customer(3,30,Role.CUSTOMER,"abc","abc@gmail.com"));
+        dbCustomer.add(new Customer(2,20,Role.CUSTOMER,"def","abc@gmail.com"));
+        dbCustomer.add(new Customer(3,30,Role.CUSTOMER,"ghk","abc@gmail.com"));
     }
 
     static {
