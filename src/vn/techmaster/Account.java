@@ -1,18 +1,31 @@
 package vn.techmaster;
 
-public abstract class Account {
+public  class Account {
     private int id;
     private double balance;
     private Role role;
+    private String name;
+    private String email;
 
-    public Account(int id, double balance, Role role) {
+    public void createAccount(){
+
+    }
+
+    public int getAccountByID(int id) {
+      return 0;
+    }
+
+    public void checkBalance(){
+
+    }
+
+
+    public Account(int id, double balance, Role role, String name, String email) {
         setId(id);
         setBalance(balance);
         setRole(role);
-    }
-
-    public Account() {
-
+        setEmail(email);
+        setName(name);
     }
 
     public int getId() {
@@ -38,4 +51,28 @@ public abstract class Account {
     public void setRole(Role role) {
         this.role = role;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Account() {
+
+    }
+
+
+
+
 }
