@@ -106,6 +106,24 @@ public class Employee extends Account  {
         }
     }
 
+    @Override
+    public void getListAccount(Role role){
+        if(role == Role.CUSTOMER){
+            for(int i = 0; i < DBAccount.dbCustomer.size(); i++){
+                System.out.print(DBAccount.dbCustomer.get(i).getId() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getName() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getEmail() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getBalance() + "  ");
+                System.out.println();
+            }
+        }else if (role == Role.EMPLOYEE){
+            System.out.println("Access denied");
+        } else {
+            System.out.println("Access denied");
+        }
+
+    }
+
     public Employee(int id, double balance, Role role, String name, String email, double salary) {
         super(id, balance, role, name, email);
         setSalary(salary);

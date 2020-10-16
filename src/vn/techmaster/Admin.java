@@ -109,6 +109,35 @@ public class Admin extends Account  {
         }
     }
 
+    @Override
+    public void getListAccount(Role role){
+        if(role == Role.CUSTOMER){
+            for(int i = 0; i < DBAccount.dbCustomer.size(); i++){
+                System.out.print(DBAccount.dbCustomer.get(i).getId() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getName() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getEmail() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getBalance() + "  ");
+                System.out.println();
+            }
+        }else if (role == Role.EMPLOYEE){
+            for(int i = 0; i < DBAccount.dbEmployee.size(); i++){
+                System.out.print(DBAccount.dbEmployee.get(i).getId() + "  ");
+                System.out.print(DBAccount.dbEmployee.get(i).getName() + "  ");
+                System.out.print(DBAccount.dbEmployee.get(i).getEmail() + "  ");
+                System.out.print(DBAccount.dbEmployee.get(i).getBalance() + "  ");
+                System.out.println();
+            }
+        } else {
+            for(int i = 0; i < DBAccount.dbAdmin.size(); i++){
+                System.out.print(DBAccount.dbAdmin.get(i).getId() + "  ");
+                System.out.print(DBAccount.dbAdmin.get(i).getName() + "  ");
+                System.out.print(DBAccount.dbAdmin.get(i).getEmail() + "  ");
+                System.out.print(DBAccount.dbAdmin.get(i).getBalance() + "  ");
+                System.out.println();
+            }
+        }
+
+    }
 
     public Admin(int id, double balance, Role role, String name, String email, double salary, double bonus) {
         super(id, balance, role, name, email);

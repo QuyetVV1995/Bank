@@ -23,6 +23,9 @@ public  class Account {
         return true;
     }
 
+    public void getListAccount(Role role){
+
+    }
 
     public Account(int id, double balance, Role role, String name, String email) {
         setId(id);
