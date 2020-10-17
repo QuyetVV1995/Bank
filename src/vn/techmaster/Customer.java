@@ -1,11 +1,10 @@
 package vn.techmaster;
 
-import java.util.Date;
 import java.util.Scanner;
 
 public class Customer extends Account {
 
-    Employee employee = new Employee();
+    IEmployee employee = new Employee();
 
     public boolean withdrawal(int id, double value){
         boolean tmp = false;
@@ -38,7 +37,7 @@ public class Customer extends Account {
 
                     if(employee.requestSendMoney(customer)){
                         customer.setBalance(customer.getBalance() + value);
-                        System.out.println("Update Balance: " + customer.getBalance());
+                        System.out.println("Update after add Money Balance: " + customer.getBalance());
                         tmp = true;
                     } else{
                         System.out.println("Admin not approval");

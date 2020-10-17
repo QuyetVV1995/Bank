@@ -1,6 +1,6 @@
 package vn.techmaster;
 
-public  class Account {
+public class Account {
     private int id;
     private double balance;
     private Role role;

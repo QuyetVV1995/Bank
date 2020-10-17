@@ -2,9 +2,9 @@ package vn.techmaster;
 
 import java.util.Scanner;
 
-public class Employee extends Account  {
+public class Employee extends Account implements IEmployee {
     private double salary;
-    Admin admin = new Admin();
+    IAdmin admin = new Admin();
     @Override
     public void createAccount(){
         Scanner scanner = new Scanner(System.in);

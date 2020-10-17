@@ -2,7 +2,7 @@ package vn.techmaster;
 
 import java.util.Scanner;
 
-public class Admin extends Account  {
+public class Admin extends Account implements IAdmin  {
     private double salary;
     private double bonus;
     Scanner scanner = new Scanner(System.in);
@@ -99,6 +99,7 @@ public class Admin extends Account  {
             return false;
         }
     }
+
     public boolean approvalSendMoney() {
         System.out.println("Approval sendMoney: 1-Yes/2-No");
         int approval =  scanner.nextInt();
