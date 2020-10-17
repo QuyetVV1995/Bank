@@ -75,6 +75,9 @@ public class Employee extends Account implements IEmployee {
         System.out.println("Role: " + customer.getRole());
         System.out.println("Name: " + customer.getName());
         System.out.println("Email: " + customer.getEmail());
+        System.out.println("Borrow Money: " + customer.getBorrowMoney());
+        System.out.println("Period: " + customer.getPeriod());
+        System.out.println("InterestRate: " + customer.getInterestRate());
 
         if( admin.approvalNewCustomer(customer))
         {
