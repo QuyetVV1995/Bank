@@ -6,8 +6,13 @@ public class Main {
         Customer customer = new Customer();
         Employee employee = new Employee();
         Admin admin = new Admin();
-        //employee.createAccount();
+//        customer.createAccount();
+//        customer.checkAccountExist("abc");
+//        customer.withdrawal(1,5);
+//        customer.sendMoney(1,3);
+//        customer.searchAccountById(1);
+//        customer.getListAccount(Role.CUSTOMER);
         customer.transfer(1,2, 5);
-        admin.getListAccount(Role.ADMIN);
+//        admin.getListAccount(Role.ADMIN);
     }
 }

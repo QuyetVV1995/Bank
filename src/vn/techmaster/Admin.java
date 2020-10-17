@@ -90,20 +90,24 @@ public class Admin extends Account implements IAdmin  {
         }
     }
 
-    public boolean approvalWithdrawal() {
+    public boolean approvalWithdrawal(Customer customer, double value) {
         System.out.println("Approval withdrawal: 1-Yes/2-No");
         int approval =  scanner.nextInt();
         if(approval == 1){
+            customer.setBalance(customer.getBalance() - value);
+            System.out.println("Update Balance after withdrawal: " + customer.getBalance());
             return true;
         } else{
             return false;
         }
     }
 
-    public boolean approvalSendMoney() {
+    public boolean approvalSendMoney(Customer customer, double value) {
         System.out.println("Approval sendMoney: 1-Yes/2-No");
         int approval =  scanner.nextInt();
         if(approval == 1){
+            customer.setBalance(customer.getBalance() + value);
+            System.out.println("Update after add Money Balance: " + customer.getBalance());
             return true;
         } else{
             return false;

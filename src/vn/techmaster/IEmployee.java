@@ -1,9 +1,9 @@
 package vn.techmaster;
 
 public interface IEmployee {
-    boolean requestWithdrawal(Customer customer);
+    boolean requestWithdrawal(Customer custome, double value);
 
-    boolean requestSendMoney(Customer customer);
+    boolean requestSendMoney(Customer customer, double value);
 
     boolean requestNewCustomer(Customer customer);
 }

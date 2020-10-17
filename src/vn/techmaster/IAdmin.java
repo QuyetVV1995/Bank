@@ -5,7 +5,7 @@ public interface IAdmin {
 
     boolean approvalNewCustomer(Customer customer);
 
-    boolean approvalWithdrawal();
+    boolean approvalWithdrawal(Customer customer, double value);
 
-    boolean approvalSendMoney();
+    boolean approvalSendMoney(Customer customer, double value);
 }

@@ -15,9 +15,7 @@ public class Customer extends Account {
                 if(customer.getBalance() < value){
                     System.out.println("Not Enough Money");
                 }else{
-                    if(employee.requestWithdrawal(customer)){
-                        customer.setBalance(customer.getBalance() - value);
-                        System.out.println("Update Balance after withdrawal: " + customer.getBalance());
+                    if(employee.requestWithdrawal(customer, value)){
                         tmp = true;
                     }else{
                         System.out.println("Admin not approval");
@@ -35,9 +33,8 @@ public class Customer extends Account {
             if(DBAccount.dbCustomer.get(i).getId() == id){
                 customer = DBAccount.dbCustomer.get(i);
 
-                    if(employee.requestSendMoney(customer)){
-                        customer.setBalance(customer.getBalance() + value);
-                        System.out.println("Update after add Money Balance: " + customer.getBalance());
+                    if(employee.requestSendMoney(customer, value)){
+
                         tmp = true;
                     } else{
                         System.out.println("Admin not approval");
@@ -54,6 +51,7 @@ public class Customer extends Account {
             System.out.println("Transfer fail");
         }
     }
+
 
     @Override
     public void createAccount(){

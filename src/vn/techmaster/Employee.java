@@ -86,8 +86,8 @@ public class Employee extends Account implements IEmployee {
         }
     }
 
-    public boolean requestWithdrawal(Customer customer){
-        if(admin.approvalWithdrawal()){
+    public boolean requestWithdrawal(Customer customer, double value){
+        if(admin.approvalWithdrawal(customer, value)){
             System.out.println("Request is approval");
             return true;
         } else{
@@ -96,8 +96,8 @@ public class Employee extends Account implements IEmployee {
         }
     }
 
-    public boolean requestSendMoney(Customer customer) {
-        if(admin.approvalSendMoney()){
+    public boolean requestSendMoney(Customer customer, double value) {
+        if(admin.approvalSendMoney(customer,value)){
             System.out.println("Request is approval");
             return true;
         } else{
