@@ -10,13 +10,13 @@ public class Main {
 
         // customer: withdrawal, sendMoney, transfer, borrowMoney
 
-        customer.createAccount();
-        customer.transfer(1,2,5);
+        //customer.createAccount();
+        //customer.transfer(1,2,5);
         customer.borrowMoney(1,7);
 
 
         // admin
-        customer.getListAccount(Role.CUSTOMER);
-        admin.getListAccount(Role.EMPLOYEE);
+        //customer.getListAccount(Role.CUSTOMER);
+        //.getListAccount(Role.EMPLOYEE);
     }
 }
