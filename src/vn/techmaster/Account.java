@@ -11,7 +11,7 @@ public class Account {
 
     }
 
-    public void searchAccountById(int id) {
+    public void displayInfoAccount(int id) {
 
     }
 
@@ -24,7 +24,7 @@ public class Account {
     }
 
     public void getListAccount(Role role){
-
+        System.out.println("Access denice");
     }
 
     public Account(int id, double balance, Role role, String name, String email) {

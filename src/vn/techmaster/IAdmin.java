@@ -8,4 +8,6 @@ public interface IAdmin {
     boolean approvalWithdrawal(Customer customer, double value);
 
     boolean approvalSendMoney(Customer customer, double value);
+
+    boolean approvalBorrowMoney(Customer customer, double value);
 }

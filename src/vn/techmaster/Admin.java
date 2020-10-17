@@ -43,7 +43,7 @@ public class Admin extends Account implements IAdmin  {
     }
 
     @Override
-    public void searchAccountById(int id) {
+    public void displayInfoAccount(int id) {
         for (int i = 0; i < DBAccount.dbAdmin.size(); i++){
             if(DBAccount.dbAdmin.get(i).getId() == id){
                 System.out.println("ID: " + DBAccount.dbAdmin.get(i).getId());
@@ -115,13 +115,35 @@ public class Admin extends Account implements IAdmin  {
     }
 
     @Override
+    public boolean approvalBorrowMoney(Customer customer, double value) {
+        System.out.println("Approval Borrow Money: 1-Yes/2-No");
+        int approval =  scanner.nextInt();
+        if(approval == 1){
+            customer.setBalance(customer.getBalance() + value );
+            customer.setBorrowMoney(value);
+            System.out.println("Input period:");
+            customer.setPeriod(scanner.nextDouble());
+
+            System.out.println("Input InterestRate:");
+            customer.setInterestRate(scanner.nextDouble());
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    @Override
     public void getListAccount(Role role){
         if(role == Role.CUSTOMER){
+            System.out.println("ID Name Email Balance BorrowMoney Period InterestRate");
             for(int i = 0; i < DBAccount.dbCustomer.size(); i++){
                 System.out.print(DBAccount.dbCustomer.get(i).getId() + "  ");
                 System.out.print(DBAccount.dbCustomer.get(i).getName() + "  ");
                 System.out.print(DBAccount.dbCustomer.get(i).getEmail() + "  ");
                 System.out.print(DBAccount.dbCustomer.get(i).getBalance() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getBorrowMoney() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getPeriod() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getInterestRate() + "  ");
                 System.out.println();
             }
         }else if (role == Role.EMPLOYEE){

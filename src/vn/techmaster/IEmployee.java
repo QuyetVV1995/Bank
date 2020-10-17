@@ -6,4 +6,6 @@ public interface IEmployee {
     boolean requestSendMoney(Customer customer, double value);
 
     boolean requestNewCustomer(Customer customer);
+
+    boolean requestBorrowMoney(Customer customer, double value);
 }

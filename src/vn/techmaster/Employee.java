@@ -45,7 +45,7 @@ public class Employee extends Account implements IEmployee {
     }
 
     @Override
-    public void searchAccountById(int id) {
+    public void displayInfoAccount(int id) {
         for (int i = 0; i < DBAccount.dbEmployee.size(); i++){
             if(DBAccount.dbEmployee.get(i).getId() == id){
                 System.out.println("ID: " + DBAccount.dbEmployee.get(i).getId());
@@ -86,12 +86,23 @@ public class Employee extends Account implements IEmployee {
         }
     }
 
+    @Override
+    public boolean requestBorrowMoney(Customer customer, double value) {
+        if (admin.approvalBorrowMoney(customer, value)) {
+            return true;
+        }else
+        {
+            System.out.println("Request Borrow Money is not approval");
+            return false;
+        }
+    }
+
     public boolean requestWithdrawal(Customer customer, double value){
         if(admin.approvalWithdrawal(customer, value)){
-            System.out.println("Request is approval");
+            System.out.println("Request Withdrawal is approval");
             return true;
         } else{
-            System.out.println("Not Approval");
+            System.out.println("Request Withdrawal is Not Approval");
             return false;
         }
     }
@@ -109,11 +120,15 @@ public class Employee extends Account implements IEmployee {
     @Override
     public void getListAccount(Role role){
         if(role == Role.CUSTOMER){
+            System.out.println("ID Name Email Balance BorrowMoney Period InterestRate");
             for(int i = 0; i < DBAccount.dbCustomer.size(); i++){
                 System.out.print(DBAccount.dbCustomer.get(i).getId() + "  ");
                 System.out.print(DBAccount.dbCustomer.get(i).getName() + "  ");
                 System.out.print(DBAccount.dbCustomer.get(i).getEmail() + "  ");
                 System.out.print(DBAccount.dbCustomer.get(i).getBalance() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getBorrowMoney() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getPeriod() + "  ");
+                System.out.print(DBAccount.dbCustomer.get(i).getInterestRate() + "  ");
                 System.out.println();
             }
         }else if (role == Role.EMPLOYEE){
